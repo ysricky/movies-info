@@ -1,11 +1,9 @@
-// OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=f613dbea
-
 const searchButton = document.querySelector('.search-button');
 
 searchButton.addEventListener('click', function () {
   const inputKeyword = document.querySelector('.input-keyword');
 
-  fetch(`http://www.omdbapi.com/?apikey=f613dbea&s=${inputKeyword.value}`)
+  fetch(`https://www.omdbapi.com/?apikey=f613dbea&s=${inputKeyword.value}`)
     .then((response) => response.json())
     .then((response) => {
       const movies = response.Search;
@@ -21,7 +19,7 @@ searchButton.addEventListener('click', function () {
       modalDetailButton.forEach((btn) => {
         btn.addEventListener('click', function () {
           const imdbid = this.dataset.imdbid;
-          fetch(`http://www.omdbapi.com/?apikey=f613dbea&i=${imdbid}`)
+          fetch(`https://www.omdbapi.com/?apikey=f613dbea&i=${imdbid}`)
             .then((response) => response.json())
             .then((m) => {
               const movieDetail = showMovieDetail(m);
